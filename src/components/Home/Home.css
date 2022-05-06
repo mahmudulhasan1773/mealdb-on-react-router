@@ -1,0 +1,27 @@
+.card{
+  box-shadow: inset 2px 2px 2px 2px #941010fc;
+    padding: 10px;
+}
+.searchBox{
+  background-color: goldenrod;
+  padding:10px 2px;
+ text-align: center;
+}
+.searchBox input{
+  width: 75%;
+}
+[type=search] {
+  outline-offset: -2px;
+  /* -webkit-appearance: none; */
+  padding: 5px;
+  text-align: center;
+  border: 2px solid gold;
+  border-radius: 5px;
+  color: rgb(21, 16, 1);
+}
+.meal-showcase{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:10px;
+  box-shadow: inset 12px 12px 11px 10px black;
+}
