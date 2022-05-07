@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import "./Meal.css";
 const Meal = () => {
+  const history = useNavigate();
   const [meals, setMeals] = useState({});
   const { idMeal } = useParams();
   console.log(idMeal);
+
+  const handleGoHome = () => {
+    history("/");
+  };
   const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`;
   useEffect(() => {
     fetch(url)
@@ -19,17 +25,20 @@ const Meal = () => {
         style={{ width: "50%", height: "100vh", margin: "50px auto" }}
       >
         <img
-          class="card-img-top"
+          className="card-img-top"
           src={meals?.strMealThumb}
           alt="Card-imag-cap"
         />
-        <div class="card-body">
-          <h5 class="card-title">{meals?.strMeal}</h5>
-          <p class="card-text">{meals?.strInstructions?.slice(0, 300)}</p>
-          <Link to="/home" class="btn btn-primary">
-            Go home
+        <div className="card-body">
+          <h5 className="card-title">{meals?.strMeal}</h5>
+          <p className="card-text">{meals?.strInstructions?.slice(0, 300)}</p>
+          <Link to="/" className="btn btn-primary">
+            Search another food item? Go home.
           </Link>
         </div>
+        <button className="btn btn-secondary" onClick={handleGoHome}>
+          go home
+        </button>
       </div>
     </>
   );
